@@ -3,7 +3,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthenticationContext } from "../authentication/authentication.context";
 import { useContext } from "react";
 
-export const FavoritesContext = createContext({});
+let faveContext: Partial<IFavorites> = {};
+export const FavoritesContext = createContext(faveContext);
 
 export const FavoritesContextProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
@@ -54,15 +55,21 @@ export const FavoritesContextProvider = ({ children }) => {
     }
   }, [user]);
 
+  const value: IFavorites = {
+    favorites,
+    addToFavorites: add,
+    removeFromFavorites: remove,
+  };
+
   return (
-    <FavoritesContext.Provider
-      value={{
-        favorites,
-        addToFavorites: add,
-        removeFromFavorites: remove,
-      }}
-    >
+    <FavoritesContext.Provider value={value}>
       {children}
     </FavoritesContext.Provider>
   );
 };
+
+interface IFavorites {
+  favorites: any[];
+  addToFavorites: Function;
+  removeFromFavorites: Function;
+}

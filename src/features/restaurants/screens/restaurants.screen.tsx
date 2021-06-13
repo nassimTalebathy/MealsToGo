@@ -14,6 +14,8 @@ import { screenNames } from "../../../infrastructure/navigation/restaurant.navig
 import { FavortiesBar } from "../../../components/favorites/favorites.bar.component";
 import { FlatList } from "react-native";
 
+import { FadeInView } from "../../../components/animations/fade.animation";
+
 const RestaurantList = styled(FlatList).attrs({
   contentContainerStyle: {
     padding: 16,
@@ -26,14 +28,16 @@ export const RestaurantListComponent = ({ restaurants, navigation }) => {
       data={restaurants}
       renderItem={({ item }) => (
         <View>
-          <RestaurantInfoCard
-            restaurant={item}
-            onPressCardCover={() =>
-              navigation.navigate(screenNames.restaurantDetail, {
-                restaurant: item,
-              })
-            }
-          />
+          <FadeInView>
+            <RestaurantInfoCard
+              restaurant={item}
+              onPressCardCover={() =>
+                navigation.navigate(screenNames.restaurantDetail, {
+                  restaurant: item,
+                })
+              }
+            />
+          </FadeInView>
         </View>
       )}
       keyExtractor={(item, idx) => `${item.name}_${idx}`}
