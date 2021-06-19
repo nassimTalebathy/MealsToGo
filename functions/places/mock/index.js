@@ -21,8 +21,13 @@ const mockImages = [
 ];
 
 module.exports.addMockImage = (restaurant) => {
+<<<<<<< HEAD
   const randomImage =
     mockImages[Math.ceil(Math.random() * (mockImages.length - 1))];
   restaurant.photos = [randomImage];
+=======
+  const rndNum = Math.ceil(Math.random() * (mockImages.length - 1));
+  restaurant.photos = [mockImages[rndNum]];
+>>>>>>> 26-tab-icon-simplified
   return restaurant;
 };

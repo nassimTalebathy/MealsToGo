@@ -1,5 +1,11 @@
 {
   "projects": {
+<<<<<<< HEAD
     "default": "mealstogoservers"
   }
 }
+=======
+    "default": "mealstogo-a948f"
+  }
+}
+>>>>>>> 26-tab-icon-simplified

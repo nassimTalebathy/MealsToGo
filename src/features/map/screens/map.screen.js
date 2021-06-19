@@ -13,7 +13,11 @@ const Map = styled(MapView)`
   width: 100%;
 `;
 
+<<<<<<< HEAD
 const RestaurantMap = ({ navigation }) => {
+=======
+export const MapScreen = ({ navigation }) => {
+>>>>>>> 26-tab-icon-simplified
   const { location } = useContext(LocationContext);
   const { restaurants = [] } = useContext(RestaurantsContext);
 
@@ -36,7 +40,11 @@ const RestaurantMap = ({ navigation }) => {
           latitude: lat,
           longitude: lng,
           latitudeDelta: latDelta,
+<<<<<<< HEAD
           longitudeDelta: 0.01,
+=======
+          longitudeDelta: 0.02,
+>>>>>>> 26-tab-icon-simplified
         }}
       >
         {restaurants.map((restaurant) => {
@@ -65,6 +73,7 @@ const RestaurantMap = ({ navigation }) => {
     </>
   );
 };
+<<<<<<< HEAD
 
 export const MapScreen = ({ navigation }) => {
   const { location } = useContext(LocationContext);
@@ -80,3 +89,5 @@ export const MapScreen = ({ navigation }) => {
   }
   return <RestaurantMap navigation={navigation} />;
 };
+=======
+>>>>>>> 26-tab-icon-simplified

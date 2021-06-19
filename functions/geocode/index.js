@@ -1,5 +1,6 @@
 const { locations: locationsMock } = require("./geocode.mock");
 const url = require("url");
+<<<<<<< HEAD
 const functions = require("firebase-functions");
 
 module.exports.geocodeRequest = (request, response, client) => {
@@ -24,4 +25,12 @@ module.exports.geocodeRequest = (request, response, client) => {
       response.status(400);
       return response.send(e.response.data.error_message);
     });
+=======
+
+module.exports.geocodeRequest = (request, response) => {
+  const { city } = url.parse(request.url, true).query;
+  const locationMock = locationsMock[city.toLowerCase()];
+
+  response.json(locationMock);
+>>>>>>> 26-tab-icon-simplified
 };

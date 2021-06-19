@@ -22,12 +22,18 @@ export const RestaurantsContextProvider = ({ children }) => {
     restaurantsRequest(loc)
       .then(restaurantsTransform)
       .then((results) => {
+<<<<<<< HEAD
         setError(null);
+=======
+>>>>>>> 26-tab-icon-simplified
         setIsLoading(false);
         setRestaurants(results);
       })
       .catch((err) => {
+<<<<<<< HEAD
         setRestaurants([]);
+=======
+>>>>>>> 26-tab-icon-simplified
         setIsLoading(false);
         setError(err);
       });

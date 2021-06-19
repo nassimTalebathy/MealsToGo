@@ -23,7 +23,10 @@ export const LocationContextProvider = ({ children }) => {
     locationRequest(keyword.toLowerCase())
       .then(locationTransform)
       .then((result) => {
+<<<<<<< HEAD
         setError(null);
+=======
+>>>>>>> 26-tab-icon-simplified
         setIsLoading(false);
         setLocation(result);
       })

@@ -1,5 +1,6 @@
 const { mocks, addMockImage } = require("./mock");
 const url = require("url");
+<<<<<<< HEAD
 const functions = require("firebase-functions");
 
 const addGoogleImage = (restaurant) => {
@@ -46,4 +47,15 @@ module.exports.placesRequest = (request, response, client) => {
       response.status(400);
       return response.send(e.response.data.error_message);
     });
+=======
+
+module.exports.placesRequest = (request, response) => {
+  const { location } = url.parse(request.url, true).query;
+  const data = mocks[location];
+  if (data) {
+    data.results = data.results.map(addMockImage);
+  }
+
+  response.json(data);
+>>>>>>> 26-tab-icon-simplified
 };

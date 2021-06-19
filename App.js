@@ -14,6 +14,7 @@ import { Navigation } from "./src/infrastructure/navigation";
 
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 
+<<<<<<< HEAD
 const firebaseConfig = {
   apiKey: "<fill in your own>",
   authDomain: "<fill in your own>",
@@ -22,6 +23,9 @@ const firebaseConfig = {
   messagingSenderId: "<fill in your own>",
   appId: "<fill in your own>",
 };
+=======
+const firebaseConfig = require("./.env.json");
+>>>>>>> 26-tab-icon-simplified
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
