@@ -7,13 +7,14 @@ import { RestaurantsContext } from "../../../services/restaurants/restaurants.co
 
 import { Search } from "../components/search.component";
 import { MapCallout } from "../components/map-callout.component";
+import { SafeArea } from "../../../components/utility/safe-area.component";
 
 const Map = styled(MapView)`
   height: 100%;
   width: 100%;
 `;
 
-export const MapScreen = ({ navigation }) => {
+export const RestaurantMap = ({ navigation }) => {
   const { location } = useContext(LocationContext);
   const { restaurants = [] } = useContext(RestaurantsContext);
 
@@ -64,4 +65,16 @@ export const MapScreen = ({ navigation }) => {
       </Map>
     </>
   );
+};
+
+export const MapScreen = ({ navigation }) => {
+  const { location } = useContext(LocationContext);
+  if (!location) {
+    return (
+      <SafeArea>
+        <Map region={{ latitude: -27, longitude: 27 }} />
+      </SafeArea>
+    );
+  }
+  return <RestaurantMap navigation={navigation} />;
 };

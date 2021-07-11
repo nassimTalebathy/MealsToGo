@@ -14,10 +14,10 @@ import { Navigation } from "./src/infrastructure/navigation";
 
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 
-const firebaseConfig = require("./.env.json");
+const env = require("./.env.json");
 
 if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(env.firebaseConfig);
 }
 
 export default function App() {
